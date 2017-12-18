@@ -3,21 +3,38 @@
 
 Vocalize sign language with deep learning.
 
+<img src="Assets/Alphabet Sign Language.jpg">
+
+<img src="Assets/Numbers Sign Language.jpg">
+
+In this project we use ours [Sign Language Digits Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset).
+
+### Important Notes For Users:
+- This project works best in the white background and good light.
+
+### Additional:
+<b>In this project, I added deep learning to my old lip reading project [SesimVar](https://github.com/ardamavi/SesimVar)(Turkish).</b>
+
+## Running program:
+Note: If you are failed, look up `For Development` title in bellow.
+
 ### Using Live Vocalize Command:
 `python3 live.py`
 
 ### Using Predict Command:
 `python3 predict.py <ImageFileName>`
 
-### Model Training:
-`python3 train.py`
+# For Development:
 
-### Using TensorBoard:
-`tensorboard --logdir=Data/Checkpoints/logs`
+## Getting Dataset:
+Get [github.com/ardamavi/Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset) dataset and copy all files from `Sign-Language-Digits-Dataset/Dataset` folder to `Data/Train_Data`.
+
+#### Artificial Intelligence Model Accuracy:
+At the end of 10 epochs, 93% accuracy was achieved in the test.
 
 ### Model Architecture:
 - Input Data
-Shape: 150x150x3
+Shape: 64x64x1
 
 - Convolutional Layer
 32 filter
@@ -59,20 +76,28 @@ Function: ReLu
 Rate: 0.5
 
 - Dense
-Size: Class size in database
+Size: Class size in dataset
 
 - Activation
-Function: Sigmoid
+Function: Sigmoid (Or use Softmax)
 
 ##### Optimizer: Adadelta
 ##### Loss: Categorical Crossentropy
 
-#### Used Python Version: 3.6.0
+### Model Training:
+`python3 train.py`
+
+### Using TensorBoard:
+`tensorboard --logdir=Data/Checkpoints/logs`
 
 ### Creating DataBase:
+- For getting ours dataset([Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset)) look up `Getting Dataset` title in this file.
 - Create 'Data/Train_Data' folder.
 - Create folder in 'Data/Train_Data' folder and rename what you want to add char or string.
 - In your created char or string named folder add much photos about created char or string named folder.
-Note: We work on 150x150 image also if you use bigger, program will automatically return to 150x150.
+Note: We work on 64x64 image also if you use bigger, program will automatically return to 64x64.
 
-<b>In this project, I added deep learning to my old lip reading project [SesimVar](https://github.com/ardamavi/SesimVar)(Turkish).</b>
+### Important Notes:
+- Used Python Version: 3.6.0
+- Install necessary modules with sudo pip3 install -r requirements.txt command.
+- Install OpenCV (We use version: 3.2.0-dev)

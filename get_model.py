@@ -16,10 +16,14 @@ def save_model(model):
     return
 
 
-def get_model(num_classes=2):
+image_size = 64
+channel_size = 1
+num_class = 10 # Default value
+
+def get_model(num_class=num_class):
     num_class = len(get_data('SELECT id FROM "id_char"'))
 
-    inputs = Input(shape=(150, 150, 3))
+    inputs = Input(shape=(image_size, image_size, channel_size))
 
     conv_1 = Conv2D(32, (3,3), strides=(1,1))(inputs)
     act_1 = Activation('relu')(conv_1)

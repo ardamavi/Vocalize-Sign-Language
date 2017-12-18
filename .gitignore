@@ -1,2 +1,6 @@
 __pycache__
 .DS_Store
+/Data/Train_Data
+/Data/DataBase
+/Data/npy_dataset
+Data/Checkpoints/logs
