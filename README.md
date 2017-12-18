@@ -1,4 +1,4 @@
-# Vocalize-Sign-Language
+# Vocalize Sign Language
 ### By Arda Mavi
 
 Vocalize sign language with deep learning.
@@ -99,5 +99,5 @@ Note: We work on 64x64 image also if you use bigger, program will automatically 
 
 ### Important Notes:
 - Used Python Version: 3.6.0
-- Install necessary modules with sudo pip3 install -r requirements.txt command.
+- Install necessary modules with `sudo pip3 install -r requirements.txt` command.
 - Install OpenCV (We use version: 3.2.0-dev)
