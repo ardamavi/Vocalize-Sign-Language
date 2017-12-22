@@ -20,6 +20,7 @@ Note: If you are failed, look up `For Development` title in bellow.
 
 ### Using Live Vocalize Command:
 `python3 live.py`
+Note: If you want, you can change the delay time.
 
 ### Using Predict Command:
 `python3 predict.py <ImageFileName>`

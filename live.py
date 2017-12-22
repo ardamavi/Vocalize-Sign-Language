@@ -34,7 +34,7 @@ def main():
             arg = 'say {0}'.format(Y)
             # Say predict with multiprocessing
             Process(target=os.system, args=(arg,)).start()
-        if cv2.waitKey(2000) == 27: # Decimal 27 = Esc
+        if cv2.waitKey(600) == 27: # Decimal 27 = Esc
             break
     cap.release()
     cv2.destroyAllWindows()
