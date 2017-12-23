@@ -18,7 +18,7 @@ def predict(model, X):
 
 if __name__ == '__main__':
     img_dir = sys.argv[1]
-    img = np.array(get_img(img_dir)).astype('float32')/255.
+    img = 1-np.array(get_img(img_dir)).astype('float32')/255.
     img = img.reshape(1, image_size, image_size, channel_size)
     # Getting model:
     model_file = open('Data/Model/model.json', 'r')

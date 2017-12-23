@@ -26,6 +26,8 @@ def get_dataset(dataset_path='Data/Train_Data'):
         X = np.load('Data/npy_dataset/X.npy')
         Y = np.load('Data/npy_dataset/Y.npy')
     except:
+        if os.path.exists('Data/DataBase/database.sqlite'):
+            os.remove('Data/DataBase/database.sqlite')
         # Create database:
         create_table('id_char','id, char')
         labels = listdir(dataset_path) # Geting labels
@@ -44,7 +46,7 @@ def get_dataset(dataset_path='Data/Train_Data'):
                     add_data('id_char', "{0}, '{1}'".format(count_categori[0], count_categori[1]))
                 Y.append(count_categori[0])
         # Create dateset:
-        X = np.array(X).astype('float32')/255.
+        X = 1-np.array(X).astype('float32')/255.
         X = X.reshape(X.shape[0], img_size, img_size, 1 if grayscale_images else 3)
         Y = np.array(Y).astype('float32')
         Y = to_categorical(Y, num_class)

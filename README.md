@@ -7,7 +7,7 @@ Vocalize sign language with deep learning.
 
 <img src="Assets/Numbers Sign Language.jpg">
 
-In this project we use ours [Sign Language Digits Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset).
+In this project we use our own [Sign Language Digits Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset).
 
 ### Important Notes For Users:
 - This project works best in the white background and good light.
@@ -31,7 +31,7 @@ Note: If you want, you can change the delay time.
 Get [github.com/ardamavi/Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset) dataset and copy all files from `Sign-Language-Digits-Dataset/Dataset` folder to `Data/Train_Data`.
 
 #### Artificial Intelligence Model Accuracy:
-At the end of 10 epochs, 93% accuracy was achieved in the test.
+At the end of 7 epochs, 95% accuracy was achieved in the test without data augmentation.
 
 ### Model Architecture:
 - Input Data
