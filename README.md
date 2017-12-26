@@ -31,7 +31,7 @@ Note: If you want, you can change the delay time.
 Get [github.com/ardamavi/Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset) dataset and copy all files from `Sign-Language-Digits-Dataset/Dataset` folder to `Data/Train_Data`.
 
 #### Artificial Intelligence Model Accuracy:
-At the end of 7 epochs, 95% accuracy was achieved in the test without data augmentation.
+At the end of 10 epochs, 96% accuracy was achieved in the test without data augmentation.
 
 ### Model Architecture:
 - Input Data
@@ -41,6 +41,7 @@ Shape: 64x64x1
 32 filter
 Filter shape: 3x3
 Strides: 1x1
+Padding: Same
 
 - Activation
 Function: ReLu
@@ -49,14 +50,33 @@ Function: ReLu
 64 filter
 Filter shape: 3x3
 Strides: 1x1
+Padding: Same
 
 - Activation
 Function: ReLu
+
+- Max Pooling
+Pool shape: 2x2
+Strides: 2x2
 
 - Convolutional Layer
 64 filter
 Filter shape: 3x3
 Strides: 1x1
+Padding: Same
+
+- Activation
+Function: ReLu
+
+- Max Pooling
+Pool shape: 2x2
+Strides: 2x2
+
+- Convolutional Layer
+128 filter
+Filter shape: 3x3
+Strides: 1x1
+Padding: Same
 
 - Activation
 Function: ReLu
@@ -68,19 +88,25 @@ Strides: 2x2
 - Flatten
 
 - Dense
-Size: 1280
+Size: 526
 
 - Activation
 Function: ReLu
 
 - Dropout
-Rate: 0.5
+Rate: 0.4
+
+- Dense
+Size: 128
+
+- Activation
+Function: ReLu
 
 - Dense
 Size: Class size in dataset
 
 - Activation
-Function: Sigmoid (Or use Softmax)
+Function: Softmax
 
 ##### Optimizer: Adadelta
 ##### Loss: Categorical Crossentropy

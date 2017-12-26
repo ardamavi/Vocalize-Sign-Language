@@ -22,37 +22,44 @@ num_class = 10 # Default value
 
 def get_model(num_class=num_class):
     num_class = len(get_data('SELECT id FROM "id_char"'))
-
+    
     inputs = Input(shape=(image_size, image_size, channel_size))
 
-    conv_1 = Conv2D(32, (3,3), strides=(1,1))(inputs)
+    conv_1 = Conv2D(32, (3,3), strides=(1,1), padding='same')(inputs)
     act_1 = Activation('relu')(conv_1)
-
-    conv_2 = Conv2D(64, (3,3), strides=(1,1))(act_1)
+    
+    conv_2 = Conv2D(64, (3,3), strides=(1,1), padding='same')(act_1)
     act_2 = Activation('relu')(conv_2)
-
-    conv_3 = Conv2D(64, (3,3), strides=(1,1))(act_2)
+    
+    pooling_1 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(act_2)
+    
+    conv_3 = Conv2D(64, (3,3), strides=(1,1), padding='same')(pooling_1)
     act_3 = Activation('relu')(conv_3)
-
-    pooling_1 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(act_3)
-
-    conv_4 = Conv2D(128, (3,3), strides=(1,1))(pooling_1)
+    
+    pooling_2 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(act_3)
+    
+    conv_4 = Conv2D(128, (3,3), strides=(1,1), padding='same')(pooling_2)
     act_4 = Activation('relu')(conv_4)
-
-    pooling_2 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(act_4)
-
-    flat_1 = Flatten()(pooling_2)
-
-    fc = Dense(1280)(flat_1)
+    
+    pooling_3 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(act_4)
+    
+    flat_1 = Flatten()(pooling_3)
+    
+    fc = Dense(526)(flat_1)
     fc = Activation('relu')(fc)
-    fc = Dropout(0.5)(fc)
+    fc = Dropout(0.4)(fc)
+    
+    fc = Dense(128)(fc)
+    fc = Activation('relu')(fc)
+    
     fc = Dense(num_class)(fc)
-
-    outputs = Activation('sigmoid')(fc)
+    outputs = Activation('softmax')(fc)
 
     model = Model(inputs=inputs, outputs=outputs)
 
     model.compile(loss='categorical_crossentropy', optimizer='adadelta', metrics=['accuracy'])
+
+    print(model.summary())
 
     return model
 
