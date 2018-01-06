@@ -22,6 +22,7 @@ def main():
 
     # Get image from camera, get predict and say it with another process, repeat.
     cap = cv2.VideoCapture(0)
+    old_char = ''
     while 1:
         ret, img = cap.read()
         cv2.imshow('Arda Mavi',img)
@@ -30,11 +31,12 @@ def main():
         img = 1-np.array(img).astype('float32')/255.
         img = img.reshape(1, img_size, img_size, 1 if grayscale_images else 3)
         Y = predict(model, img)[0][0]
-        if(platform.system() == 'Darwin'):
+        if(platform.system() == 'Darwin') and old_char != Y:
             arg = 'say {0}'.format(Y)
             # Say predict with multiprocessing
             Process(target=os.system, args=(arg,)).start()
-        if cv2.waitKey(600) == 27: # Decimal 27 = Esc
+            old_char = Y
+        if cv2.waitKey(500) == 27: # Decimal 27 = Esc
             break
     cap.release()
     cv2.destroyAllWindows()
