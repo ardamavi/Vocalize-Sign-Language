@@ -30,12 +30,13 @@ def main():
         img = imresize(img, (img_size, img_size, channel_size))
         img = 1-np.array(img).astype('float32')/255.
         img = img.reshape(1, img_size, img_size, channel_size)
-        Y = predict(model, img)[0][0]
-        if(platform.system() == 'Darwin') and old_char != Y and Y != 'None':
-            arg = 'say {0}'.format(Y)
+        Y_string, Y_possibility = predict(model, img)
+        print(Y_string, Y_possibility)
+        if(platform.system() == 'Darwin') and old_char != Y_string and Y_possibility > 0.75:
+            arg = 'say {0}'.format(Y_string)
             # Say predict with multiprocessing
             Process(target=os.system, args=(arg,)).start()
-            old_char = Y
+            old_char = Y_string
         if cv2.waitKey(500) == 27: # Decimal 27 = Esc
             break
     cap.release()

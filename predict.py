@@ -9,11 +9,11 @@ from keras.models import model_from_json
 image_size = 64
 channel_size = 1
 
-def predict(model, X):
+def predict(model, X): # Return: Y String , Y Possibility
     Y = model.predict(X)
-    Y = np.argmax(Y, axis=1)
-    Y = get_data('SELECT char FROM "id_char" WHERE id={0}'.format(Y[0]))
-    return Y
+    Y_index = np.argmax(Y, axis=1)
+    Y_string = get_data('SELECT char FROM "id_char" WHERE id={0}'.format(Y_index[0]))
+    return Y_string[0][0], Y[0][Y_index]
 
 if __name__ == '__main__':
     img_dir = sys.argv[1]
@@ -26,4 +26,5 @@ if __name__ == '__main__':
     model = model_from_json(model)
     # Getting weights
     model.load_weights("Data/Model/weights.h5")
-    print('Class:', predict(model, img)[0][0])
+    Y_string, Y_possibility = predict(model, img)
+    print('Class:', Y_string, '\nPossibility:', Y_possibility)

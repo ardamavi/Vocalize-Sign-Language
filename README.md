@@ -33,7 +33,7 @@ Note: If you want, you can change the delay time.
 Dataset: [github.com/ardamavi/Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset)
 
 #### Artificial Intelligence Model Accuracy:
-At the end of 8 epochs, 96% accuracy was achieved in the test without data augmentation.
+At the end of 15 epochs, 96% accuracy was achieved in the test without data augmentation.
 
 ### Model Architecture:
 - Input Data
