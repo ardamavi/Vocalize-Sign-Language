@@ -9,7 +9,7 @@ from multiprocessing import Process
 from keras.models import model_from_json
 
 img_size = 64
-grayscale_images = True # False: RGB
+channel_size = 1
 
 def main():
     # Getting model:
@@ -27,11 +27,11 @@ def main():
         ret, img = cap.read()
         cv2.imshow('Arda Mavi',img)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        img = imresize(img, (img_size, img_size, 1 if grayscale_images else 3))
+        img = imresize(img, (img_size, img_size, channel_size))
         img = 1-np.array(img).astype('float32')/255.
-        img = img.reshape(1, img_size, img_size, 1 if grayscale_images else 3)
+        img = img.reshape(1, img_size, img_size, channel_size)
         Y = predict(model, img)[0][0]
-        if(platform.system() == 'Darwin') and old_char != Y:
+        if(platform.system() == 'Darwin') and old_char != Y and Y != 'None':
             arg = 'say {0}'.format(Y)
             # Say predict with multiprocessing
             Process(target=os.system, args=(arg,)).start()

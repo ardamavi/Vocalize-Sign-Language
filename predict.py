@@ -8,7 +8,6 @@ from keras.models import model_from_json
 
 image_size = 64
 channel_size = 1
-num_class = 10 # Default value
 
 def predict(model, X):
     Y = model.predict(X)

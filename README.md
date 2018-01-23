@@ -28,10 +28,12 @@ Note: If you want, you can change the delay time.
 # For Development:
 
 ## Getting Dataset:
-Get [github.com/ardamavi/Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset) dataset and copy all files from `Sign-Language-Digits-Dataset/Dataset` folder to `Data/Train_Data`.
+`cd Data && chmod +x download_dataset.sh && ./download_dataset.sh`
+
+Dataset: [github.com/ardamavi/Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset)
 
 #### Artificial Intelligence Model Accuracy:
-At the end of 10 epochs, 96% accuracy was achieved in the test without data augmentation.
+At the end of 10 epochs, 97% accuracy was achieved in the test without data augmentation.
 
 ### Model Architecture:
 - Input Data
@@ -117,8 +119,10 @@ Function: Softmax
 ### Using TensorBoard:
 `tensorboard --logdir=Data/Checkpoints/logs`
 
-### Creating DataBase:
-- For getting ours dataset([Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset)) look up `Getting Dataset` title in this file.
+### Creating Dataset:
+For getting dataset look up [Getting Dataset](#getting-dataset) title in this file.
+
+For your own dataset:
 - Create 'Data/Train_Data' folder.
 - Create folder in 'Data/Train_Data' folder and rename what you want to add char or string.
 - In your created char or string named folder add much photos about created char or string named folder.

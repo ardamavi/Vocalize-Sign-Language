@@ -6,7 +6,7 @@ from get_model import get_model, save_model
 from keras.callbacks import ModelCheckpoint, TensorBoard
 
 epochs = 10
-batch_size = 5
+batch_size = 6
 
 def train_model(model, X, X_test, Y, Y_test):
     checkpoints = []
@@ -33,7 +33,7 @@ def train_model(model, X, X_test, Y, Y_test):
 
 def main():
     X, X_test, Y, Y_test = get_dataset()
-    model = get_model(num_class=10)
+    model = get_model()
     model = train_model(model, X, X_test, Y, Y_test)
     save_model(model)
     return model

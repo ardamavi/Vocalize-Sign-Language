@@ -9,15 +9,15 @@ from sklearn.model_selection import train_test_split
 
 # Settings:
 img_size = 64
-grayscale_images = True # False: RGB
+channel_size = 1
 num_class = 10
 test_size = 0.2
 
 
 def get_img(data_path):
     # Getting image array from path:
-    img = imread(data_path, flatten=grayscale_images)
-    img = imresize(img, (img_size, img_size, 1 if grayscale_images else 3))
+    img = imread(data_path, flatten = True if channel_size == 1 else False)
+    img = imresize(img, (img_size, img_size, channel_size))
     return img
 
 def get_dataset(dataset_path='Data/Train_Data'):
@@ -47,9 +47,9 @@ def get_dataset(dataset_path='Data/Train_Data'):
                 Y.append(count_categori[0])
         # Create dateset:
         X = 1-np.array(X).astype('float32')/255.
-        X = X.reshape(X.shape[0], img_size, img_size, 1 if grayscale_images else 3)
+        X = X.reshape(X.shape[0], img_size, img_size, channel_size)
         Y = np.array(Y).astype('float32')
-        Y = to_categorical(Y, num_class)
+        Y = to_categorical(Y, len(labels))
         if not os.path.exists('Data/npy_dataset/'):
             os.makedirs('Data/npy_dataset/')
         np.save('Data/npy_dataset/X.npy', X)
