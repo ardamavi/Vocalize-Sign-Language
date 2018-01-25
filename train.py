@@ -21,12 +21,12 @@ def train_model(model, X, X_test, Y, Y_test):
     # For better yield. The duration of the training is extended.
 
     from keras.preprocessing.image import ImageDataGenerator
-    generated_data = ImageDataGenerator(rotation_range=0.1,  width_shift_range=0.1, height_shift_range=0.1, horizontal_flip = True, vertical_flip = False)
+    generated_data = ImageDataGenerator(rotation_range=30, width_shift_range=0.1, height_shift_range=0.1, zoom_range=0.2) # For include left hand data add: 'horizontal_flip = True'
     generated_data.fit(X)
 
     model.fit_generator(generated_data.flow(X, Y, batch_size=batch_size), steps_per_epoch=X.shape[0]/batch_size, epochs=epochs, validation_data=(X_test, Y_test), callbacks=checkpoints)
-
     '''
+    
     model.fit(X, Y, batch_size=batch_size, epochs=epochs, validation_data=(X_test, Y_test), shuffle=True, callbacks=checkpoints)
 
     return model
