@@ -46,10 +46,11 @@ def get_model():
 
     fc = Dense(526)(flat_1)
     fc = Activation('relu')(fc)
-    fc = Dropout(0.4)(fc)
+    fc = Dropout(0.5)(fc)
 
     fc = Dense(128)(fc)
     fc = Activation('relu')(fc)
+    fc = Dropout(0.5)(fc)
 
     fc = Dense(num_class)(fc)
     outputs = Activation('softmax')(fc)
