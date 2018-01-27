@@ -32,12 +32,12 @@ def main():
         img = img.reshape(1, img_size, img_size, channel_size)
         Y_string, Y_possibility = predict(model, img)
         print(Y_string, Y_possibility)
-        if(platform.system() == 'Darwin') and old_char != Y_string and Y_possibility > 0.75:
+        if(platform.system() == 'Darwin') and old_char != Y_string and Y_possibility > 0.6:
             arg = 'say {0}'.format(Y_string)
             # Say predict with multiprocessing
             Process(target=os.system, args=(arg,)).start()
             old_char = Y_string
-        if cv2.waitKey(500) == 27: # Decimal 27 = Esc
+        if cv2.waitKey(200) == 27: # Decimal 27 = Esc
             break
     cap.release()
     cv2.destroyAllWindows()

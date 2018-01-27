@@ -13,7 +13,7 @@ def predict(model, X): # Return: Y String , Y Possibility
     Y = model.predict(X)
     Y_index = np.argmax(Y, axis=1)
     Y_string = get_data('SELECT char FROM "id_char" WHERE id={0}'.format(Y_index[0]))
-    return Y_string[0][0], Y[0][Y_index]
+    return Y_string[0][0], Y[0][Y_index][0]
 
 if __name__ == '__main__':
     img_dir = sys.argv[1]

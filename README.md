@@ -3,9 +3,9 @@
 
 Vocalize sign language with deep learning.
 
-<img src="Assets/Alphabet Sign Language.jpg">
+<img src="Assets/Alphabet Sign Language.jpg" width="500">
 
-<img src="Assets/Numbers Sign Language.jpg">
+<img src="Assets/Numbers Sign Language.jpg" width="500">
 
 In this project we use our own [Sign Language Digits Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset).
 
@@ -33,7 +33,14 @@ Note: If you want, you can change the delay time.
 Dataset: [github.com/ardamavi/Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset)
 
 #### Artificial Intelligence Model Accuracy:
-At the end of 15 epochs, 98% accuracy was achieved in the test without data augmentation.
+At the end of 25 epochs, 97% accuracy was achieved in the test without data augmentation:
+
+<img src="Data/Without_Data_Augmentation/val_acc.jpg" width="350">
+
+<br/>
+At the end of 25 epochs, 99% accuracy was achieved in the test with data augmentation:
+
+<img src="Data/With_Data_Augmentation/val_acc.jpg" width="350">
 
 ### Model Architecture:
 - Input Data
@@ -115,6 +122,10 @@ Function: Softmax
 
 ##### Optimizer: Adadelta
 ##### Loss: Categorical Crossentropy
+
+Total params: 4,507,864<br/>
+Trainable params: 4,507,864<br/>
+Non-trainable params: 0
 
 ### Model Training:
 `python3 train.py`
