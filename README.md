@@ -1,7 +1,7 @@
 # Vocalize Sign Language
 ### By Arda Mavi
 
-Vocalize sign language with deep learning.
+Vocalization sign language with deep learning.
 
 <img src="Assets/Alphabet Sign Language.jpg" width="500">
 
@@ -9,10 +9,28 @@ Vocalize sign language with deep learning.
 
 In this project we use our own [Sign Language Digits Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset).
 
+# Contents:
+[For Users](#for-users)
+- [Important Notes For Users](#important-notes-for-users)
+- [Additional Info](#additional-info)
+- [Running Program](#running-program)
+
+[For Developers](#for-developers)
+- [Getting Dataset](#getting-dataset)
+- [Artificial Intelligence Model Accuracy](#artificial-intelligence-model-accuracy)
+- [Model Architecture](#model-architecture)
+- [Model Training](#model-training)
+- [Using Tensorboard](#using-tensorboard)
+- [Creating Dataset](#creating-dataset)
+
+! [Important Notes](#important-notes)
+
+# For Users:
+
 ### Important Notes For Users:
 - This project works best in the white background and good light.
 
-### Additional:
+### Additional Info:
 <b>In this project, I added deep learning to my old lip reading project [SesimVar](https://github.com/ardamavi/SesimVar)(Turkish).</b>
 
 ## Running program:
@@ -25,14 +43,18 @@ Note: If you want, you can change the delay time.
 ### Using Predict Command:
 `python3 predict.py <ImageFileName>`
 
-# For Development:
+# For Developers:
 
 ## Getting Dataset:
 `cd Data && chmod +x download_dataset.sh && ./download_dataset.sh`
 
-Dataset: [github.com/ardamavi/Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset)
+#### Dataset:
+[github.com/ardamavi/Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset)
 
-#### Artificial Intelligence Model Accuracy:
+#### Dataset Preview:
+<img src="Assets/Ours Dataset Preview.jpg" width="400">
+
+### Artificial Intelligence Model Accuracy:
 At the end of 25 epochs, 97% accuracy was achieved in the test without data augmentation:
 
 <img src="Data/Without_Data_Augmentation/val_acc.jpg" width="350">
@@ -129,6 +151,8 @@ Non-trainable params: 0
 
 ### Model Training:
 `python3 train.py`
+
+Not forget to [download dataset](#getting-dataset) before training!
 
 ### Using TensorBoard:
 `tensorboard --logdir=Data/Checkpoints/logs`
