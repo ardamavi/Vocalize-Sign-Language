@@ -34,7 +34,7 @@ def main():
         img = img[0:img_height, side_width:side_width+img_height]
         
         # Show window:
-        cv2.imshow('VSL',cv2.flip(img,1)) # Flip(mirror effect) for easy handling.
+        cv2.imshow('VSL', cv2.flip(img,1)) # cv2.flip(img,1) : Flip(mirror effect) for easy handling.
         
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         img = imresize(img, (img_size, img_size, channel_size))
@@ -42,6 +42,10 @@ def main():
         img = img.reshape(1, img_size, img_size, channel_size)
         
         Y_string, Y_possibility = predict(model, img)
+        
+        if Y_possibility < 0.4: # For secondary vocalization
+            old_char = ''
+        
         if(platform.system() == 'Darwin') and old_char != Y_string and Y_possibility > 0.6:
             print(Y_string, Y_possibility)
             arg = 'say {0}'.format(Y_string)
