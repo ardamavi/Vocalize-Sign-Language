@@ -3,11 +3,14 @@
 
 Vocalization sign language with deep learning.
 
-<img src="Assets/Alphabet Sign Language.jpg" width="500">
+In this project we use our own `Sign Language Dataset`.
 
-<img src="Assets/Numbers Sign Language.jpg" width="500">
+Vocalization sign language iOS App: [Vocalization-Sign-Language-iOS](https://github.com/ardamavi/Vocalization-Sign-Language-iOS)
 
-In this project we use our own [Sign Language Digits Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset).
+|Demo|
+|:-:|
+|<img src="Assets/Demo Gif.gif" height="400">|
+|[Watch Demo Videos &#128266; ](https://github.com/ardamavi/Vocalize-Sign-Language/blob/master/Assets)|
 
 # Contents:
 [For Users](#for-users)
@@ -48,8 +51,20 @@ Note: If you want, you can change the delay time.
 ## Getting Dataset:
 `cd Data && chmod +x download_dataset.sh && ./download_dataset.sh`
 
+### New `DataSet` and `Updated Model` coming soon!
+
+|Demo|
+|:-:|
+|<img src="Assets/Demo Gif.gif" height="400">|
+|[Watch Demo Videos &#128266; ](https://github.com/ardamavi/Vocalize-Sign-Language/blob/master/Assets)|
+
+|Model Accuracy|
+|:-:|
+|<img src="Assets/Model_Accuracy.png" width="350">|
+
+
 #### Dataset:
-[github.com/ardamavi/Sign-Language-Digits-Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset)
+In this project we use our own [Sign Language Digits Dataset](https://github.com/ardamavi/Sign-Language-Digits-Dataset).
 
 #### Dataset Preview:
 <img src="Assets/Ours Dataset Preview.jpg" width="400">
