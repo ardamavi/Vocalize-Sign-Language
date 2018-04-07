@@ -51,16 +51,16 @@ Note: If you want, you can change the delay time.
 ## Getting Dataset:
 `cd Data && chmod +x download_dataset.sh && ./download_dataset.sh`
 
-### New `DataSet` and `Updated Model` coming soon!
+### Used `(New) DataSet` and `(Updated) Model` coming soon!
 
 |Demo|
 |:-:|
 |<img src="Assets/Demo Gif.gif" height="400">|
 |[Watch Demo Videos &#128266; ](https://github.com/ardamavi/Vocalize-Sign-Language/blob/master/Assets)|
 
-|Model Accuracy|
-|:-:|
-|<img src="Assets/Model_Accuracy.png" width="350">|
+|DataSet Examples|Model Accuracy|
+|:-:|:-:|
+|<img src="Assets/DataSet Examples.png" width="350">|<img src="Assets/Model_Accuracy.png" width="350">|
 
 
 #### Dataset:
