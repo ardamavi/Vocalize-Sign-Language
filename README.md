@@ -185,3 +185,7 @@ Note: We work on 64x64 image also if you use bigger, program will automatically 
 - Used Python Version: 3.6.0
 - Install necessary modules with `sudo pip3 install -r requirements.txt` command.
 - Install OpenCV (We use version: 3.2.0-dev)
+
+
+## Cite as:
+Mavi, A., (2020), “A New Dataset and Proposed Convolutional Neural Network Architecture for Classification of American Sign Language Digits”, arXiv:2011.08927 [cs.CV]
