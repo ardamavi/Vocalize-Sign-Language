@@ -51,7 +51,8 @@ Note: If you want, you can change the delay time.
 ## Getting Dataset:
 `cd Data && chmod +x download_dataset.sh && ./download_dataset.sh`
 
-### Used `(New) DataSet` and `(Updated) Model` coming soon!
+### New dataset is available on Kaggle: [ 27 Class Sign Language Dataset - Kaggle](https://www.kaggle.com/ardamavi/27-class-sign-language-dataset)
+### `(Updated) Model` coming soon!
 
 |Demo|
 |:-:|
